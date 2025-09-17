@@ -4,7 +4,7 @@
 import numpy as np
 
 
-def compute_loss(y, tx, w):
+def compute_loss(y, tx, w,method):
     """Calculate the loss using either MSE or MAE.
 
     Args:
@@ -17,5 +17,11 @@ def compute_loss(y, tx, w):
     """
     e=y-tx@w
     N=y.shape[0]
-    L=(1/(2*N))*np.linalg.norm(e)
+    if method=="MSE":
+        L=(1/(2*N))*np.dot(e,e)
+    elif method=="MAE":
+        L=(1/N)*np.sum(np.abs(e))
+    else:
+        raise ValueError("method must be 'MSE' or 'MAE'")
+
     return L

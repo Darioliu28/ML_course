@@ -48,7 +48,7 @@ def stochastic_gradient_descent(y, tx, initial_w, batch_size, max_iters, gamma):
 
     for n_iter in range(max_iters):
         y_batch, tx_batch = next(batch_iter(y, tx, batch_size))
-        loss=compute_loss(y_batch,tx_batch,w)
+        loss=compute_loss(y_batch,tx_batch,w,method="MSE")
         w=w-gamma*compute_stoch_gradient(y_batch,tx_batch,w)
 
         ws.append(w)

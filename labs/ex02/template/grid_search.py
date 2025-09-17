@@ -37,5 +37,5 @@ def grid_search_mine(y, tx, grid_w0, grid_w1):
     losses = np.zeros((len(grid_w0), len(grid_w1)))
     W0, W1= np.meshgrid(grid_w0, grid_w1, indexing="ij")
     pairs=np.stack([W0,W1], axis=-1)
-    losses= np.apply_along_axis(lambda w: compute_loss(y,tx,w),-1,pairs)
+    losses= np.apply_along_axis(lambda w: compute_loss(y,tx,w,method="MSE"),-1,pairs)
     return losses

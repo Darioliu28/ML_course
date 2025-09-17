@@ -43,7 +43,7 @@ def gradient_descent_mine(y, tx, initial_w, max_iters, gamma):
     losses = []
     w = initial_w
     for n_iter in range(max_iters):
-        loss=compute_loss(y,tx,w)
+        loss=compute_loss(y,tx,w,method="MSE")
         w=w-gamma*compute_gradient(y,tx,w)
 
         # store w and loss
