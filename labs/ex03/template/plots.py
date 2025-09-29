@@ -26,10 +26,11 @@ def plot_train_test(train_errors, test_errors, lambdas, degree):
 
     degree is just used for the title of the plot.
     """
+    plt.figure()
     plt.semilogx(lambdas, train_errors, color="b", marker="*", label="Train error")
     plt.semilogx(lambdas, test_errors, color="r", marker="*", label="Test error")
     plt.xlabel("lambda")
     plt.ylabel("RMSE")
     plt.title("Ridge regression for polynomial degree " + str(degree))
-    leg = plt.legend(loc=1, shadow=True)
-    leg.draw_frame(False)
+    plt.legend(loc=1, shadow=True, frameon=False)
+    plt.show()
