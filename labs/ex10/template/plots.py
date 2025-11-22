@@ -56,7 +56,7 @@ def plot(data, mu, mu_old, out_dir):
     plt.close()
 
 
-def plot_image_compression(original_image, image, assignments, mu, k):
+def plot_image_compression(original_image, assignments, mu, k):
     """plot histgram."""
     # init the plot
     fig = plt.figure()
